@@ -1,0 +1,69 @@
+<diagram program="umletino" version="15.1"><zoom_level>6</zoom_level><element><id>UMLClass</id><coordinates><x>384</x><y>222</y><w>288</w><h>168</h></coordinates><panel_attributes>&lt;&lt;abstract&gt;&gt;
+Hallazgos
+--
+- sitio: String
+- fecha: Integer
+- estado: Integer
+- id: Integer
+- contadorId: static int = 50000
+--
++ Hallazgos(String sitio, Integer fecha, Integer estado, Integer id)
++ getSitio(): String
++ getFecha(): Integer
++ getEstado(): Integer
++ getId(): Integer</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>186</x><y>270</y><w>126</w><h>72</h></coordinates><panel_attributes>&lt;&lt;Enum&gt;&gt;
+Epoca
+--
+-PRECOLOMBINA,
+-COLONIAL
+-MODERNA
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>306</x><y>294</y><w>90</w><h>24</h></coordinates><panel_attributes>lt=&lt;-
+</panel_attributes><additional_attributes>10;20;130;20</additional_attributes></element><element><id>UMLClass</id><coordinates><x>0</x><y>570</y><w>336</w><h>114</h></coordinates><panel_attributes>Fosiles
+--
+- especie: String
+- completo: Boolean
+--
++ Fosiles(String especie, Boolean completo, String sitio, Integer fecha, Integer estado, Integer id)
++ analizar(): void
++ toString(): String</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>354</x><y>570</y><w>330</w><h>114</h></coordinates><panel_attributes>Robot
+--
+- material: String
+- uso: String
+--
++ Herramientas(String material, String uso, String sitio, Integer fecha, Integer estado, Integer id)
++ analizar(): void</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>702</x><y>570</y><w>348</w><h>114</h></coordinates><panel_attributes>Construcciones
+--
+- tipo: String
+- epoca: Epoca
+--
++ Construcciones(String tipo, Epoca epoca, String sitio, Integer fecha, Integer estado, Integer id)
++ getEpoca(): Epoca
++ esDe(Epoca tipo): boolean
++ restaurar(): void</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>414</x><y>0</y><w>258</w><h>150</h></coordinates><panel_attributes>InsitutoNacionalArquologia
+
+--
+InstitutoNacionalArqueologia
+--
+- hallazgos: List&lt;Hallazgos&gt;
+- construccionesFiltradas: List&lt;Construcciones&gt;
+--
++ InstitutoNacionalArqueologia()
++ agregarHallazgo(Hallazgos nuevoHallazgo): void
++ mostrarHallazgos(): void
++ ejecutarAnalisis(): void
++ ejecutarRestauracion(): void
++ filtrarConstruccionesPorEpoca(Epoca epoca): void
++ mostrarHallazgosPorEstado(int estadoDesde, int estadoHasta): void</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>738</x><y>18</y><w>216</w><h>114</h></coordinates><panel_attributes>&lt;&lt;exception&gt;&gt;
+HallazgoDuplicadoExcepcion
+--
++ HallazgoDuplicadoException(String: sitio, Integer: fecha)
++HallazgoDuplicadoException(mensaje: String)</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>246</x><y>678</y><w>72</w><h>78</h></coordinates><panel_attributes>lt=&lt;&lt;.</panel_attributes><additional_attributes>100;110;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>372</x><y>678</y><w>78</w><h>78</h></coordinates><panel_attributes>lt=&lt;&lt;.</panel_attributes><additional_attributes>10;110;110;10</additional_attributes></element><element><id>Relation</id><coordinates><x>594</x><y>384</y><w>300</w><h>198</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>10;10;480;310</additional_attributes></element><element><id>Relation</id><coordinates><x>150</x><y>384</y><w>324</w><h>198</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>520;10;10;310</additional_attributes></element><element><id>Relation</id><coordinates><x>516</x><y>384</y><w>18</w><h>198</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>10;10;10;310</additional_attributes></element><element><id>Relation</id><coordinates><x>666</x><y>66</y><w>84</w><h>24</h></coordinates><panel_attributes>lt=&lt;.
+</panel_attributes><additional_attributes>124;20;14;20</additional_attributes></element><element><id>Relation</id><coordinates><x>522</x><y>144</y><w>18</w><h>90</h></coordinates><panel_attributes>lt=&lt;-</panel_attributes><additional_attributes>10;130;10;10</additional_attributes></element><element><id>UMLClass</id><coordinates><x>270</x><y>744</y><w>150</w><h>66</h></coordinates><panel_attributes>&lt;&lt;interface&gt;&gt;
+Analizable
+--
++ analizar()
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>708</x><y>756</y><w>150</w><h>66</h></coordinates><panel_attributes>&lt;&lt;interface&gt;&gt;
+Restaurable
+--
++ restaurar()
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>756</x><y>678</y><w>78</w><h>90</h></coordinates><panel_attributes>lt=&lt;&lt;.</panel_attributes><additional_attributes>10;130;110;10</additional_attributes></element></diagram>
